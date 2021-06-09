@@ -20,6 +20,11 @@ export default createStore({
       }
     }
   },
+  getters: {
+    topCountriesPopulation(state) {
+      return state.countries.sort( (a,b) => a.population < b.population ? 1 : -1 );
+    }
+  },
   modules: {
   }
 })

@@ -15,7 +15,7 @@ export default {
     const store = useStore();
     
     const countries = computed( () => {
-      return store.state.countries;
+      return store.getters.topCountriesPopulation;
     });
 
     onMounted( () => {
