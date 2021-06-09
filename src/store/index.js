@@ -14,7 +14,6 @@ export default createStore({
       try{
         const res = await fetch('https://restcountries.eu/rest/v2/all');
         const data = await res.json();
-        console.log(data);
         commit('setCountries', data);
       }catch(err) {
         console.log(err);

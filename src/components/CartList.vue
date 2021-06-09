@@ -1,16 +1,29 @@
 <template>
-  <h2>Card</h2>
+  <div class="row">
+    <div class="col-12">
+      {{ countries }}
+    </div>
+  </div>
 </template>
 
 <script>
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useStore } from 'vuex'
 export default {
   setup() {
+
     const store = useStore();
+    
+    const countries = computed( () => {
+      return store.state.countries;
+    });
+
     onMounted( () => {
       store.dispatch('getCountries');
     });
+
+    return { countries }
+
   }
 
 }
